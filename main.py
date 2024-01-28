@@ -1,4 +1,4 @@
-"""Create safe passowrords for your accounts"""
+"""Create safe passowords for your accounts"""
 import random
 from tkinter import *
 
