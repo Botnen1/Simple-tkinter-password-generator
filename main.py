@@ -1,7 +1,7 @@
 """Create safe passowords for your accounts"""
 import random
 from tkinter import *
-
+from tkinter import messagebox
 
 window = Tk()
 window.geometry('400x200')
@@ -45,8 +45,15 @@ def makePassword():
     except ValueError:
         print('Please enter a valid integer for password length.')
 
+def copyToClipboard():
+    password = output_text.get("1.0", END).strip()
+    window.clipboard_clear()
+    window.clipboard_append(password)
+    window.update()
+    messagebox.showinfo("Copied", "Password copied to clipboard!")
 
-
+copy_button = Button(window, text="Copy to Clipboard", command=copyToClipboard)
+copy_button.pack()
 button1 = Button(window, text='Create passowrd', command = makePassword)
 button1.pack()
 window.mainloop()
